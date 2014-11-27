@@ -54,11 +54,38 @@ public abstract class Employee{
 
 	/**
 	 * Sets the first name of the employee
-	 * @param xFirstName new first name for the employee
+	 * @param xFirstName New first name for the employee
 	*/
 	public void setFirstName(String xFirstName){
-		
+		firstName = xFirstName;
+	}
 
+
+	/**
+	 * Sets the last name of the employee
+	 * @param xLastName New last name of the employee
+	*/
+	public void setLastName(String xLastName){
+		lastName = xLastName;
+	}
+
+
+	/**
+	 * Sets the Social Security Number for the employee
+	 * @param xSSN New Social Security Number for the employee
+	*/
+	public void setSSN(int xSSN){
+	if( xSSN > 100000000)
+		SSN = xSSN;
+	else
+		throw new IllegalArguementException("That is not a valid SSN");
+	}
+
+
+/*******************************************************************************/
+
+
+	public abstract getEarnings();
 
 
 	
