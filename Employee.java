@@ -14,9 +14,36 @@ public abstract class Employee{
 
 	
 	//common fields
-	protected String firstName;
-	protected String firstName;
-	protected int SSN;
+	private  String firstName;
+	private  String firstName;
+	private  int SSN;
+
+
+
+	/**
+	 * Default constructor
+	 * <p>
+	 * Initializes names to "No Entry", SSN to 10000000, and salary to 0.
+	 */
+	public Employee(){
+		this.firstName = "No Entry";
+		this.lastName = "No Entry";
+		this.setSSN(10000000);
+	}
+
+
+
+	/**
+	 * Overloaded constructor
+	 * @param xFirstName First name of the employee
+	 * @param xLastName Last name of the employee
+	 * @param xSSN Social Security Number of the employee
+	 */
+	public Employee(String xFirstName, String xLastName, int xSSN){
+		this.firstName = xFirstName;
+		this.lastName = xLastName;
+		this.setSSN(xSSN);
+	}
 
 
 
@@ -29,7 +56,7 @@ public abstract class Employee{
 	 * @return first name of the employee
 	 */
 	public String getFirstName(){
-		return firstName;
+		return this.firstName;
 	}
 
 
@@ -39,7 +66,7 @@ public abstract class Employee{
 	 * @return last name of the employee
 	 */
 	public String getLastName(){
-		return lastName;
+		return this.lastName;
 	}
 
 
@@ -49,7 +76,7 @@ public abstract class Employee{
 	 * @return Social security number of the employee
 	 */
 	public int getSSN(){
-		return SSN;
+		return this.SSN;
 	}
 	
 
@@ -64,7 +91,7 @@ public abstract class Employee{
 	 * @param xFirstName New first name for the employee
 	 */
 	public void setFirstName(String xFirstName){
-		firstName = xFirstName;
+		this.firstName = xFirstName;
 	}
 
 
@@ -74,7 +101,7 @@ public abstract class Employee{
 	 * @param xLastName New last name of the employee
 	 */
 	public void setLastName(String xLastName){
-		lastName = xLastName;
+		this.lastName = xLastName;
 	}
 
 
@@ -83,9 +110,9 @@ public abstract class Employee{
 	 * Sets the Social Security Number for the employee
 	 * @param xSSN New Social Security Number for the employee
 	 */
-	public void setSSN(int xSSN){
-		if(xSSN > 100000000)
-			SSN = xSSN;
+	public final void setSSN(int xSSN){
+		if(xSSN >= 100000000)
+			this.SSN = xSSN;
 		else
 			throw new IllegalArguementException("That is not a valid SSN");
 	}

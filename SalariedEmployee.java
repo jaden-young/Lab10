@@ -19,14 +19,29 @@ public class SalariedEmployee extends Employee{
 
 	/**
 	 * Default constructor
-	 *
-	 * <p> Initializes names to "No Entry", SSN to 10000000, and salary to 0.
+	 * <p>
+	 * Initializes names to "No Entry", SSN to 10000000, and salary to 0.
 	 */
 	public SalariedEmployee(){
-		firstName = "No Entry";
-		lastName = "No Entry";
-		setSSN(10000000);
-		weeklySalary = 0;
+		super();
+		this.weeklySalary = 0;
+	}
+
+
+
+	/**
+	 * Overloaded constructor
+	 * <p> 
+	 * Initializes SalariedEmployee object with values for all fields
+	 * @param xFirstName First name of the employee
+	 * @param xLastName Last name of the employee
+	 * @param xSSN Social Security Number of the employee
+	 * @param xWeeklySalary Weekly salary of the employee
+	 */
+	public SalariedEmployee(String xFirstName, String xLastName, int xSSN, 
+							double xWeeklySalary){
+		super(xFirstName, xLastName, xSSN);
+		setWeeklySalary(xWeeklySalary);
 	}
 
 
@@ -35,8 +50,9 @@ public class SalariedEmployee extends Employee{
 	 * Returns the weekly salary of the employee
 	 * @return Weekly salary of the employee
 	 */
+	@Override
 	public double getEarnings(){
-		return weeklySalary;
+		return this.weeklySalary;
 	}
 
 
@@ -45,9 +61,9 @@ public class SalariedEmployee extends Employee{
 	 * Sets the weekly salary of the employee
 	 * @param xWeeklySalary New weekly salary for the employee
 	 */
-	public void setWeeklySalary(double xWeeklySalary){
+	public final void setWeeklySalary(double xWeeklySalary){
 		if (xWeeklySalary >= 0)
-			weeklySalary = xWeeklySalary;
+			this.weeklySalary = xWeeklySalary;
 		else
 			throw new IllegalArgumentException("Needs to be a positive " + 
 				"number");
@@ -65,10 +81,11 @@ public class SalariedEmployee extends Employee{
 	@Override toString()
 	public String toString(){
 		String output = "";
-		output += "First name: " + firstName;
-		output += "\nLast name: "+ lastName;
-		output += "\nSocial Security Number: " + SSN;
-		output += "\nWeekly salary: " + getEarnings();
+		output += "First name: " + this.getFirstName();
+		output += "\nLast name: "+ this.getLastName();
+		output += "\nSocial Security Number: " + this.getSSN();
+		output += "\nWeekly salary: " + this.getEarnings();
+		return output;
 	}
 
 
@@ -84,12 +101,12 @@ public class SalariedEmployee extends Employee{
 		if (!(xObj instanceof SalariedEmployee))
 			return false;
 		SalariedEmployee Obj = (SalariedEmployee)xObj;
-		if (firstName != Obj.getFirstName())
+		if (this.getFirstName() != Obj.getFirstName())
 			return false;
-		if (lastName !+ Obj.getFirstName())
+		if (this.getLastName() !+ Obj.getFirstName())
 			return false;
-		if (SSN != Obj.getSSN())
+		if (this.getSSN() != Obj.getSSN())
 			return false;
-		return (getEarnings() == Obj.getEarnings());
+		return (this.getEarnings() == Obj.getEarnings());
 	}
 }
