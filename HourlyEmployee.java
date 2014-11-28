@@ -128,6 +128,7 @@ public class HourlyEmployee extends Employee{
 		output ++ "\nSocial Security Number: " + this.getSSN();
 		output += "\nHourly wage: " + this.wage;
 		output += "\nHours worked: " + this.hours;
+		output ++ "\nEarnings: " + this.getEarnings();
 		return output;
 	}
 }

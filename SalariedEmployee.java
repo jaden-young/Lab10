@@ -2,8 +2,8 @@ package lab10;
 /**
  * Defines a salaried employee, a subclass of Employee with an additional field
  * for weekly salary.
- * 
- * <p> Default constructor initializes first/last name to "No Entry", SSN to 
+ * <p>
+ * Default constructor initializes first/last name to "No Entry", SSN to 
  * 10000000, and weekly salary to 0. Get/set methods are provided for weekly
  * salary, as well as toString and equals methods. 
  */
