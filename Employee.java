@@ -2,8 +2,8 @@ package lab10;
 /**
  * Abstract superclass containing common methods/fields for various types of 
  * employees
- *
- * <p> Contains fields for first name, last name, and social security number,
+ * <p>
+ * Contains fields for first name, last name, and social security number,
  * get/set methods for each field, and an abstract method getEarnings()
  * to calculate the earnings of the employee for the pay period.
  * @author Jaden Young
