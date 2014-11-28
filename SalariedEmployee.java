@@ -1,12 +1,11 @@
 package lab10;
 /**
- * Subclass of Employee, defines a Salaried employee with a weekly salary.
- *
- * <p> Defines a salaried employee that adds a weekly salary to the 
- * Employee superclass. Default constructor initializes all variables to 
- * default values. Get/set methods are provided for weekly salary, as well as
- * toString and equals methods. 
+ * Defines a salaried employee, a subclass of Employee with an additional field
+ * for weekly salary.
  * 
+ * <p> Default constructor initializes first/last name to "No Entry", SSN to 
+ * 10000000, and weekly salary to 0. Get/set methods are provided for weekly
+ * salary, as well as toString and equals methods. 
  */
 
 public class SalariedEmployee extends Employee{
@@ -19,9 +18,15 @@ public class SalariedEmployee extends Employee{
 
 
 	/**
-	 * Default constructor, initializes all variables to default values
+	 * Default constructor
+	 *
+	 * <p> Initializes names to "No Entry", SSN to 10000000, and salary to 0.
 	 */
 	public SalariedEmployee(){
+		firstName = "No Entry";
+		lastName = "No Entry";
+		setSSN(10000000);
+		weeklySalary = 0;
 	}
 
 
@@ -30,7 +35,7 @@ public class SalariedEmployee extends Employee{
 	 * Returns the weekly salary of the employee
 	 * @return Weekly salary of the employee
 	 */
-	public double getWeeklySalary(){
+	public double getEarnings(){
 		return weeklySalary;
 	}
 
@@ -41,7 +46,7 @@ public class SalariedEmployee extends Employee{
 	 * @param xWeeklySalary New weekly salary for the employee
 	 */
 	public void setWeeklySalary(double xWeeklySalary){
-		if(xWeeklySalary > 0)
+		if (xWeeklySalary >= 0)
 			weeklySalary = xWeeklySalary;
 		else
 			throw new IllegalArgumentException("Needs to be a positive " + 
@@ -76,9 +81,15 @@ public class SalariedEmployee extends Employee{
 	 */
 	@Override equals()
 	public boolean equals(Object xObj){
-		if(!(xObj instanceof SalariedEmployee))
+		if (!(xObj instanceof SalariedEmployee))
 			return false;
-		SalariedEmployee
+		SalariedEmployee Obj = (SalariedEmployee)xObj;
+		if (firstName != Obj.getFirstName())
+			return false;
+		if (lastName !+ Obj.getFirstName())
+			return false;
+		if (SSN != Obj.getSSN())
+			return false;
+		return (getEarnings() == Obj.getEarnings());
 	}
-
 }

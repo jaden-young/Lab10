@@ -14,9 +14,9 @@ public abstract class Employee{
 
 	
 	//common fields
-	String firstName;
-	String firstName;
-	int SSN;
+	protected String firstName;
+	protected String firstName;
+	protected int SSN;
 
 
 
