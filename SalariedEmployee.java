@@ -29,6 +29,19 @@ public class SalariedEmployee extends Employee{
 
 
 	/**
+	 * Overloaded constructor
+	 * <p>
+	 * Initializes all variables to values passed as arguements
+	 */
+	public SalariedEmployee(String xFirstName, String xLastName, int xSSN,
+							double xWeeklySalary){
+		super(xFirstName, xLastName, xSSN);
+		this.setWeeklySalary(xWeeklySalary);
+	}
+
+
+
+	/**
 	 * Returns the weekly salary of the employee
 	 * @return Weekly salary of the employee
 	 */
@@ -42,7 +55,7 @@ public class SalariedEmployee extends Employee{
 	 * Sets the weekly salary of the employee
 	 * @param xWeeklySalary New weekly salary for the employee
 	 */
-	public void setWeeklySalary(double xWeeklySalary){
+	public final void setWeeklySalary(double xWeeklySalary){
 		if(xWeeklySalary > 0)
 			weeklySalary = xWeeklySalary;
 		else
