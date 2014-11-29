@@ -75,10 +75,10 @@ public class SalariedEmployee extends Employee{
 	@Override toString()
 	public String toString(){
 		String output = "";
-		output += "First name: " + firstName;
-		output += "\nLast name: "+ lastName;
-		output += "\nSocial Security Number: " + SSN;
-		output += "\nWeekly salary: " + getEarnings();
+		output += "First name: " + this.getFirstName();
+		output += "\nLast name: " + this.getLastName();
+		output += "\nSocial Security Number: " + this.getSSN();
+		output += "\nWeekly salary: " + this.getEarnings();
 	}
 
 
@@ -89,11 +89,19 @@ public class SalariedEmployee extends Employee{
 	 *
 	 * @return True if objects are equal, false if not
 	 */
-	@Override equals()
+	@Override
 	public boolean equals(Object xObj){
 		if(!(xObj instanceof SalariedEmployee))
 			return false;
-		SalariedEmployee
+		SalariedEmployee Obj = (SalariedEmployee)xObj;
+		
+		if(!(this.getFirstName().equals(Obj.getFirstName())))
+			return false;
+		if(!(this.getLastName().equals(Obj.getFirstname())))
+			return false;
+		if(this.getSSN() != Obj.getSSN())
+			return false;
+		if(
 	}
 
 }
