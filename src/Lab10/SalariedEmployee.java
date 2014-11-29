@@ -6,11 +6,10 @@ package Lab10;
  * Employee superclass. Default constructor initializes all variables to 
  * default values. Get/set methods are provided for weekly salary, as well as
  * toString and equals 
- * 
+ * @author Jaden Young
  */
 
 public class SalariedEmployee extends Employee{
-
 
 
     //instance variable
@@ -25,7 +24,6 @@ public class SalariedEmployee extends Employee{
         super();
         weeklySalary = 0.0;
     }
-
 
 
     /**
@@ -56,7 +54,6 @@ public class SalariedEmployee extends Employee{
     
 
 
-
     /**
      * Sets the weekly salary of the employee
      * @param xWeeklySalary New weekly salary for the employee
@@ -80,12 +77,9 @@ public class SalariedEmployee extends Employee{
      */
     @Override
     public String toString(){
-            String output = "";
-            output += "First name: " + this.getFirstName();
-            output += "\nLast name: " + this.getLastName();
-            output += "\nSocial Security Number: " + this.getSSN();
-            output += "\nWeekly salary: " + this.getEarnings();
-            return output;
+        String output = super.toString();
+        output += "\nWeekly salary: " + this.getEarnings();
+        return output;
     }
 
 
@@ -98,16 +92,16 @@ public class SalariedEmployee extends Employee{
      */
     @Override
     public boolean equals(Object xObj){
-            if(!(xObj instanceof SalariedEmployee))
-                    return false;
-            SalariedEmployee Obj = (SalariedEmployee)xObj;
+        if(!(xObj instanceof SalariedEmployee))
+                return false;
+        SalariedEmployee Obj = (SalariedEmployee)xObj;
 
-            if(!(this.getFirstName().equals(Obj.getFirstName())))
-                    return false;
-            if(!(this.getLastName().equals(Obj.getFirstName())))
-                    return false;
-            if(this.getSSN() != Obj.getSSN())
-                    return false;
-            return(this.getEarnings() == Obj.getEarnings());
+        if(!(this.getFirstName().equals(Obj.getFirstName())))
+                return false;
+        if(!(this.getLastName().equals(Obj.getFirstName())))
+                return false;
+        if(this.getSSN() != Obj.getSSN())
+                return false;
+        return(this.getEarnings() == Obj.getEarnings());
     }
 }
