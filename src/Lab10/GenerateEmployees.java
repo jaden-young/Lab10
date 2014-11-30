@@ -25,6 +25,15 @@ public class GenerateEmployees {
      * Generates a 10 element array of Employee type with randomly populated
      * information.
      * <p>
+     * A random number generator is used to decide which type of employee to 
+     * create. First name and last name are randomly selected from arrays with 
+     * generic names. 
+     * 
+     * 
+     * 
+     * 
+     * 
+     * 
      * 
      * @return 
      */
@@ -67,7 +76,7 @@ public class GenerateEmployees {
                     
                 //Hourly employee
                 case 1:
-                    double wage = rand.nextDouble() * 40;
+                    double wage = rand.nextDouble() * 40 + 7.25;
                     double hours = rand.nextDouble() * 80;
                     
                     employeeList[i] = new HourlyEmployee(
@@ -82,7 +91,7 @@ public class GenerateEmployees {
                     
                 //Commission Employee
                 case 2:
-                    double commissionRate = rand.nextDouble() * 50;
+                    double commissionRate = rand.nextDouble();
                     double grossSales = rand.nextDouble() * 5000;
                     
                     employeeList[i] = new CommissionEmployee(
@@ -97,7 +106,7 @@ public class GenerateEmployees {
                     
                 //Base Plus Commission Employee
                 case 3:
-                    double basePlusCommissionRate = rand.nextDouble() * 50;
+                    double basePlusCommissionRate = rand.nextDouble();
                     double basePlusGrossSales = rand.nextDouble() * 5000;
                     double baseSalary = rand.nextDouble() * 500;
                     
@@ -117,6 +126,11 @@ public class GenerateEmployees {
     
     
     public static void main(String[] args) {
+        Employee[] employeeList = generateEmployees();
         
+        for (Employee Obj : employeeList) {
+            System.out.println(Obj.toString());
+            System.out.println("");
+        }
     }
 }

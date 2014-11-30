@@ -95,11 +95,11 @@ public class CommissionEmployee extends Employee{
      * @param xCommissionRate New commission rate for the employee
      */
     public final void setCommissionRate(double xCommissionRate) {
-        if (xCommissionRate >= 0)
-            commissionRate = xCommissionRate;
-        else
+        if (xCommissionRate < 0 || xCommissionRate > 1)
             throw new IllegalArgumentException("Rate must be a positive " +
                     "number");
+        else
+            commissionRate = xCommissionRate;
     }
 
 
@@ -126,6 +126,27 @@ public class CommissionEmployee extends Employee{
      */
     @Override
     public String toString() {
+        String output = "Type: Commission Employee";
+        output += "\n" + super.toString();
+        output += "\n Commission rate: " + percent.format(this.commissionRate);
+        output += "\n Gross sales: " + money.format(this.grossSales);
+        output += "\n Earnings: " + money.format(this.getEarnings());
+        return output;
+    }
+    
+    
+    
+    /**
+     * Returns a printable version of the data contained in the class without 
+     * the type of the class
+     * <p>
+     * This is for use in the subclass. It allows the subclass to add its type
+     * to the beginning of the string for its toString method.
+     * 
+     * @return String containing all data in the class except for type of 
+     * employee
+     */
+    public String toStringNoType() {
         String output = super.toString();
         output += "\n Commission rate: " + percent.format(this.commissionRate);
         output += "\n Gross sales: " + money.format(this.grossSales);

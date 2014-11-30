@@ -1,4 +1,7 @@
 package Lab10;
+
+import java.text.DecimalFormat;
+
 /**
 * Defines an Hourly Employee, a subclass of Employee with the additional fields
 * for wage and hours.
@@ -20,7 +23,7 @@ public class HourlyEmployee extends Employee{
     private double wage;
     private double hours;
 
-
+    DecimalFormat decimal = new DecimalFormat("0.##");
 
     /**
      * Default constructor
@@ -125,11 +128,12 @@ public class HourlyEmployee extends Employee{
      * @param xWage New hourly wage for the employee
      */
     public final void setWage(double xWage){
-        if (xWage >= 0)
-            this.wage = xWage;
-        else
+        if (xWage < 0)
             throw new IllegalArgumentException("Can't be paid a negative "
                     + "amount");
+        if (xWage < 7.25)
+            throw new IllegalArgumentException("That is below the federal " +
+                    "minimum wage");
     }
 
 
@@ -141,10 +145,11 @@ public class HourlyEmployee extends Employee{
      */
     @Override
     public String toString(){
-        String output = super.toString();
-        output += "\nHourly wage: " + this.wage;
-        output += "\nHours worked: " + this.hours;
-        output += "\nEarnings: " + this.getEarnings();
+        String output = "Type: Hourly Employee";
+        output += "\n" + super.toString();
+        output += "\nHourly wage: " + money.format(this.wage);
+        output += "\nHours worked: " + decimal.format(this.hours);
+        output += "\nEarnings: " + money.format(this.getEarnings());
         return output;
     }
     

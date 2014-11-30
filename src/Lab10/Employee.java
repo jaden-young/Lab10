@@ -1,5 +1,6 @@
 package Lab10;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 /**
@@ -22,10 +23,10 @@ public abstract class Employee{
     private  int SSN;
 
 
-    //format for percent/currency
+    //formats for toString output
     NumberFormat money = NumberFormat.getCurrencyInstance();
-    NumberFormat percent = NumberFormat.getPercentInstance();
-
+    DecimalFormat percent = new DecimalFormat("%0.##");
+    
 
     /**
      * Default constructor
@@ -127,7 +128,7 @@ public abstract class Employee{
      * @param xSSN New Social Security Number for the employee
      */
     public final void setSSN(int xSSN){
-        if(xSSN >= 100000000)
+        if(xSSN >= 10000000)
             this.SSN = xSSN;
         else
             throw new IllegalArgumentException("Must be an 8 digit number");

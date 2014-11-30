@@ -86,8 +86,9 @@ public class SalariedEmployee extends Employee{
      */
     @Override
     public String toString(){
-        String output = super.toString();
-        output += "\nWeekly salary: " + this.getEarnings();
+        String output = "Type: Salaried Employee";
+        output += "\n" + super.toString();
+        output += "\nEarnings: " + money.format(this.getEarnings());
         return output;
     }
 

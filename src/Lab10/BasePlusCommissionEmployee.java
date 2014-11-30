@@ -101,7 +101,8 @@ public class BasePlusCommissionEmployee extends CommissionEmployee{
      */
     @Override
     public String toString(){
-        String output = super.toString();
+        String output = "Type: Base Plus Commission Employee";
+        output += "\n" + super.toStringNoType();
         output += "\nBase Salary: " + money.format(this.getBaseSalary());
         return output;
     }
