@@ -1,10 +1,15 @@
 package Lab10;
-import java.text.NumberFormat;
+
 /**
 * Defines a CommissionEmployee, a subclass of Employee with additional 
 * attributes for Commission Rate and Gross Sales.
 * <p>
-* 
+* Default constructor initializes all fields to default values. 
+* Contains get/set methods for both Commission Rate and Gross Sales. Set methods
+* for each require an argument to be positive, else throw exceptions. Implements
+* the getEarnings method that calculates earning by multiplying gross sales 
+* and commission rate. toString and equals methods are provided which override
+* the parent class.
 * @author Jaden Young
 */
 public class CommissionEmployee extends Employee{
@@ -13,10 +18,6 @@ public class CommissionEmployee extends Employee{
     //instance variables
     private double commissionRate;
     private double grossSales;
-    
-    //format for percent/currency
-    NumberFormat money = NumberFormat.getCurrencyInstance();
-    NumberFormat percent = NumberFormat.getPercentInstance();
     
     
 
@@ -59,7 +60,7 @@ public class CommissionEmployee extends Employee{
      *
      * @return Commission rate of the employee
      */
-    public double getComissionRate() {
+    public double getCommissionRate() {
         return commissionRate;
     }
 
@@ -120,6 +121,7 @@ public class CommissionEmployee extends Employee{
 
     /**
      * Returns a printable version of the data contained in the object
+     * 
      * @return String containing printable version of the data in the object
      */
     @Override
@@ -127,6 +129,29 @@ public class CommissionEmployee extends Employee{
         String output = super.toString();
         output += "\n Commission rate: " + percent.format(this.commissionRate);
         output += "\n Gross sales: " + money.format(this.grossSales);
+        output += "\n Earnings: " + money.format(this.getEarnings());
         return output;
+    }
+    
+    
+    
+    /**
+     * Compares two CommissionEmployee objects for equality by comparing all
+     * fields
+     * 
+     * @param xObj Object to be compared
+     * @return True if objects are equal, false if not
+     */
+    @Override
+    public boolean equals(Object xObj){
+        if (!(super.equals(xObj)))
+            return false;
+        if (!(xObj instanceof CommissionEmployee))
+            return false;
+        CommissionEmployee Obj = (CommissionEmployee) xObj;
+        
+        if (this.commissionRate != Obj.getCommissionRate())
+            return false;
+        return (this.grossSales == Obj.getGrossSales());
     }
 }

@@ -1,11 +1,14 @@
 package Lab10;
+
 /**
  * Subclass of Employee, defines a Salaried employee with a weekly salary.
  *
- * <p> Defines a salaried employee that adds a weekly salary to the 
- * Employee superclass. Default constructor initializes all variables to 
- * default values. Get/set methods are provided for weekly salary, as well as
- * toString and equals 
+ * <p>  Default constructor initializes all variables to 
+ * default values. The getEarnings is implemented, returning the weekly salary
+ * of the employee. A mutator method is provided for the weekly salary that 
+ * checks to ensure the argument is positive. toString and equals methods are 
+ * also provided and override those in the parent class.
+ * 
  * @author Jaden Young
  */
 
@@ -18,7 +21,10 @@ public class SalariedEmployee extends Employee{
 
 
     /**
-     * Default constructor, initializes all variables to default values
+     * Default constructor.
+     * <p>
+     * Initializes first/last name to "No entry", SSN to 10000000, and 
+     * weeklySalary to 0.
      */
     public SalariedEmployee(){
         super();
@@ -30,6 +36,7 @@ public class SalariedEmployee extends Employee{
      * Overloaded constructor
      * <p>
      * Initializes all variables to values passed as arguments
+     * 
      * @param xFirstName First name of the employee
      * @param xLastName Last name of the employee
      * @param xSSN Social Security Number of the employee
@@ -45,6 +52,7 @@ public class SalariedEmployee extends Employee{
 
     /**
      * Returns the weekly salary of the employee
+     * 
      * @return Weekly salary of the employee
      */
     @Override
@@ -56,6 +64,7 @@ public class SalariedEmployee extends Employee{
 
     /**
      * Sets the weekly salary of the employee
+     * 
      * @param xWeeklySalary New weekly salary for the employee
      */
     public final void setWeeklySalary(double xWeeklySalary){
@@ -87,21 +96,17 @@ public class SalariedEmployee extends Employee{
     /**
      * Compares two SalariedEmployee objects for equality by comparing the 
      * data in the fields.
+     * 
      * @param xObj object to be compared
      * @return True if objects are equal, false if not
      */
     @Override
     public boolean equals(Object xObj){
+        if(!(super.equals(xObj)))
+            return false;
         if(!(xObj instanceof SalariedEmployee))
                 return false;
         SalariedEmployee Obj = (SalariedEmployee)xObj;
-
-        if(!(this.getFirstName().equals(Obj.getFirstName())))
-                return false;
-        if(!(this.getLastName().equals(Obj.getFirstName())))
-                return false;
-        if(this.getSSN() != Obj.getSSN())
-                return false;
-        return(this.getEarnings() == Obj.getEarnings());
+        return(this.weeklySalary == Obj.getEarnings());
     }
 }
