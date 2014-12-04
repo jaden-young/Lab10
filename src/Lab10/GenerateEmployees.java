@@ -3,7 +3,9 @@ package Lab10;
 import java.util.Random;
 
 /**
- *
+ * This is a client program containing a main method. Its purpose is to randomly
+ * generate 10 different objects of Employee's subclasses, then print each of 
+ * them with all of their data.
  * @author Jaden Young
  */
 public class GenerateEmployees {
@@ -27,15 +29,14 @@ public class GenerateEmployees {
      * <p>
      * A random number generator is used to decide which type of employee to 
      * create. First name and last name are randomly selected from arrays with 
-     * generic names. 
+     * generic names. The social security number is also assigned as a random 
+     * value. The program is switched on the type of employee to create, and 
+     * each different type initializes its unique instance variables to random
+     * values using the random object. All values are passed to the constructor
+     * for each iteration, and that new Employee object is added to an array
+     * list. 
      * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * 
-     * @return 
+     * @return Array list with 10 randomly generated Employee objects
      */
     private static Employee[] generateEmployees(){
         
@@ -53,7 +54,7 @@ public class GenerateEmployees {
             int type = rand.nextInt(4);
             String firstName = firstNames[rand.nextInt(10)];
             String lastName = lastNames[rand.nextInt(10)];
-            int SSN = (rand.nextInt(10000000) + 10000000);
+            int SSN = (rand.nextInt(89999999) + 10000000);
             
             
             //creates objects of diferent classes depending on the randomly 
@@ -95,11 +96,11 @@ public class GenerateEmployees {
                     double grossSales = rand.nextDouble() * 5000;
                     
                     employeeList[i] = new CommissionEmployee(
-                    firstName,
-                    lastName,
-                    SSN,
-                    commissionRate,
-                    grossSales);
+                        firstName,
+                        lastName,
+                        SSN,
+                        commissionRate,
+                        grossSales);
                     
                     break;
                     
@@ -111,12 +112,12 @@ public class GenerateEmployees {
                     double baseSalary = rand.nextDouble() * 500;
                     
                     employeeList[i] = new BasePlusCommissionEmployee(
-                    firstName,
-                    lastName,
-                    SSN,
-                    basePlusCommissionRate,
-                    basePlusGrossSales,
-                    baseSalary);
+                        firstName,
+                        lastName,
+                        SSN,
+                        basePlusCommissionRate,
+                        basePlusGrossSales,
+                        baseSalary);
             }
         }
         return employeeList;
@@ -124,7 +125,7 @@ public class GenerateEmployees {
     
     
     
-    
+    //Prints summary of each object in the array list
     public static void main(String[] args) {
         Employee[] employeeList = generateEmployees();
         

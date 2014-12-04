@@ -134,6 +134,7 @@ public class HourlyEmployee extends Employee{
         if (xWage < 7.25)
             throw new IllegalArgumentException("That is below the federal " +
                     "minimum wage");
+        wage = xWage;
     }
 
 
