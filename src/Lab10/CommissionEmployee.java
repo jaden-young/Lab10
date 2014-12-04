@@ -128,9 +128,9 @@ public class CommissionEmployee extends Employee{
     public String toString() {
         String output = "Type: Commission Employee";
         output += "\n" + super.toString();
-        output += "\n Commission rate: " + percent.format(this.commissionRate);
-        output += "\n Gross sales: " + money.format(this.grossSales);
-        output += "\n Earnings: " + money.format(this.getEarnings());
+        output += "\nCommission rate: " + percent.format(this.commissionRate);
+        output += "\nGross sales: " + money.format(this.grossSales);
+        output += "\nEarnings: " + money.format(this.getEarnings());
         return output;
     }
     
